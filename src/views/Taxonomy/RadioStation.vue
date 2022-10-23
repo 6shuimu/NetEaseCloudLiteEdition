@@ -42,7 +42,7 @@ let keyword = ref('Rs')
 // 点击刷新的自定义事件
 async function Refresh(name) {
   if(name === 'Rs') {
-    await total('/dj/hot',{ limit:2 })
+    await total('/dj/hot',{ limit:11 })
   }
 }
 
@@ -73,7 +73,7 @@ async function total(address,data) {
 // 存储请求数据
 let storage = ref(null)
 
-total('/dj/hot',{ limit:8 })
+total('/dj/hot',{ limit:11 })
 
 onMounted(()=>{
   Re_assignment()
@@ -98,7 +98,7 @@ onMounted(()=>{
 
       li {
         float: left;
-        margin-top: 2.8vw;
+        margin-top: 2.7vw;
         margin-left: 3.2vw;
         transition: all .3s;
         border-radius: 1vw;

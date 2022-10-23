@@ -449,13 +449,12 @@
   .All-left {
     display: inline-block;
     width: 70%;
-    height: 100%;
 
     // 推荐歌单
     .Re-playlist {
       display: inline-block;
       width: 100%;
-      height: 94%;
+      height: 40vw;
       border: 0.1vw solid rgba(171, 168, 168, 0.721);
       border-radius: 1vw;
       overflow: hidden;
@@ -528,7 +527,7 @@
     .Newon {
       display: inline-block;
       width: 100%;
-      height: 60%;
+      height: 26vw;
       border: 0.1vw solid rgba(171, 168, 168, 0.721);
       border-radius: 1vw;
       overflow: hidden;
@@ -659,7 +658,7 @@
     .List {
       display: inline-block;
       width: 100%;
-      height: 120%;
+      height: 50vw;
       border: 0.1vw solid rgba(171, 168, 168, 0.721);
       border-radius: 1vw;
       overflow: hidden;
@@ -667,7 +666,7 @@
       // 导航栏
       .List-navigation {
         width: 98.4%;
-        height: 7%;
+        height: 6%;
         font-size: 1.4vw;
         border-radius: 1vw 1vw 0 0;
         margin: 0 0.8%;
@@ -744,7 +743,7 @@
     // 热门歌手
     .Popularsingers {
       width: 100%;
-      height: 54.35vw;
+      height: 55vw;
       border: 0.01vw solid rgba(171, 168, 168, 0.721);
       border-radius: 1vw;
       margin-left: 0.1vw;
@@ -815,7 +814,7 @@
     // 热门主播
     .mv {
       width: 100%;
-      height: 59vw;
+      height: 61.46vw;
       border: 0.01vw solid rgba(171, 168, 168, 0.721);
       border-radius: 1vw;
       margin-left: 0.1vw;
@@ -856,7 +855,7 @@
       // 内容
       .mv-content {
         width: 100%;
-        height: 56.5vw;
+        height: 58vw;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;

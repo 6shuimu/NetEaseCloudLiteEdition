@@ -11,7 +11,22 @@
       <li><a href="javascript:;" @click="Mymusic_click">我的音乐</a></li>
     </ul>
     <!-- 登录 -->
-    <div class="login">登录</div>
+    <div class="login">
+      <!-- 登录成功 -->
+      <div class="Login_successful" v-if="Login.LoginSuccessful">
+        <!-- 头像图标 -->
+        <img src="@/assets/暂时.jpg">
+        <!-- 账号名称 -->
+        <div class="LS-text">xxx</div>
+      </div>
+      <!-- 未登录 -->
+      <div class="Login_fail" @click="Not_Logged_In_click" v-if="!Login.LoginSuccessful">
+        <!-- 图标 -->
+        <div class="iconfont icon-weidenglutouxiang"></div>
+        <!-- 文字 -->
+        <div class="LF-text">未登录</div>
+      </div>
+    </div>
   </div>
 
   <!-- 左侧栏 -->
@@ -44,18 +59,23 @@
   <div class="Contentarea">
     <router-view></router-view>
   </div>
-
-  <!-- 播放器 -->
-  <player></player>
-
 </template>
 
 <script setup>
-  import { ref,reactive,onMounted } from 'vue'
+  // 导入vue
+  import { ref,reactive,onMounted,watch } from 'vue'
+
+  // 导入router
   import { useRouter,useRoute } from 'vue-router';
 
   // 导入播放器组件
   import Player from '../components/Player.vue'
+
+  // 导入登录状态数值
+  import { useLogin } from '@/store/Loginvalue.js'
+
+  // 导入Login
+  const Login = useLogin()
   
   // 创建$route和$router
   const $route = useRoute();
@@ -234,6 +254,20 @@
     }
   }
 
+  // 未登录点击事件
+  function Not_Logged_In_click() {
+    Login.ShowHidelogin = true
+  }
+
+watch(
+  ()=>Login.LoginSuccessful,
+  (newL)=>{
+    if(newL) {
+      console.log(1)
+    }
+  }
+)
+
 onMounted(()=>{
   Judge_navigation()
 })
@@ -244,8 +278,7 @@ onMounted(()=>{
 // 导航栏
 .NavBar {
   width: 100%;
-  height: 3vw;
-  line-height: 3vw;
+  height: 5%;
   text-align: center;
   box-shadow: 0 0.1vw 0.7vw rgba(255, 255, 255, .3);
   background-color: rgba(63, 62, 62, 0.543);
@@ -253,6 +286,7 @@ onMounted(()=>{
   border-radius: 0.6vw;
   border: 0.1vw solid rgba(72, 69, 69, 0.5);
   font-size: 1.2vw;
+  position: relative;
 
   // 导航栏具体内容
   ul {
@@ -269,6 +303,9 @@ onMounted(()=>{
         display: block;
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
           border-bottom: 0.1vw solid rgba(219, 236, 240, 0.71);
@@ -280,7 +317,73 @@ onMounted(()=>{
 
   // 登录
   .login {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // 登录成功
+    .Login_successful {
+      margin-right: 1vw;
+      height: 2.1vw;
+      line-height: 2.8vw;
+      padding: 0 1vw;
+      border-radius: 1vw;
+      border: 0.05vw solid #ccc;
+      display: flex;
+      align-items: center;
+      background-color: rgba(153, 173, 178, 0.288);
+
+      // 头像图标
+      img {
+        width: 1.5vw;
+        height: 1.5vw;
+        border-radius: 50%;
+        border: 0.05vw solid rgb(36, 36, 36);
+        cursor: pointer;
+        margin-right: 0.5vw;
+      }
+
+      // 账号名称
+      .LS-text {
+        display: inline-block;
+        font-size: 1.4vw;
+        color: rgb(147, 147, 147);
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // 未登录
+    .Login_fail {
+      cursor: pointer;
+      margin-right: 1vw;
+  
+
+      // 图标
+      .icon-weidenglutouxiang {
+        display: inline-block;
+        margin-right: 0.4vw;
+        font-size: 1.3vw;
+        color: rgb(204, 204, 204);
+      }
+      // 文字
+      .LF-text {
+        display: inline-block;
+        font-size: 1.2vw;
+        color: rgb(162, 163, 164);
+      }
+
+      &:hover .LF-text {
+        text-decoration: underline;
+      }
+    }
   }
 
 }
@@ -411,7 +514,7 @@ onMounted(()=>{
 // 内容区
 .Contentarea {
   width: 100%;
-  height: 42vw;
+  height: 95%;
   background-color: rgba(63, 63, 60, 0.543);
   backdrop-filter: blur(0.12vw);
   border-radius: 0.6vw;

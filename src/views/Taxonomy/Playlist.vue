@@ -94,14 +94,14 @@ onMounted(()=>{
       height: 100%;
 
       li {
-        width: 12%;
+        width: 16%;
         height: 3vw;
         float: left;
         background-color: rgba(198, 199, 201, 0.475);
         border: 0.07vw solid #ccc;
-        margin-top: 1vw;
+        margin-top: 1.3vw;
         border-radius: 0.5vw;
-        margin-left: 0.4vw;
+        margin-left: 0.5vw;
         transition: all .2s;
         
         &:hover {
@@ -109,8 +109,6 @@ onMounted(()=>{
         }
 
         &:last-child {
-          width: 12%;
-          height: 3vw;
           
           &:hover .icon-quanbu {
             color: rgb(254, 254, 254);

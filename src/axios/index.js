@@ -17,6 +17,11 @@ const mistake = {
 // 歌手分类列表/artist/list
 // 歌单分类 /playlist/catlist
 // 全部 mv /mv/all
+// 二维码 key 生成接口 /login/qr/key
+// 二维码生成接口 /login/qr/create
+// 二维码检测扫码状态接口 /login/qr/check
+// 发送验证码 /captcha/sent
+// 验证验证码 /captcha/verify
 export async function General(address,data) {
   return await axios.get(root + address,{params:data})
   .then(res=>res)

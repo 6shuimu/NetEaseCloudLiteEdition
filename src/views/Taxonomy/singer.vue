@@ -5,7 +5,7 @@
     <div class="SO-rendering" v-if="Whethe===1?true:false">
       <ul>
         <li v-for="item in storage" :key="item.id"><Singermaster :singer="item" :img="item.img1v1Url" :name="item.name"></Singermaster></li>
-        <li><a href="javascript:;" class="iconfont icon-quanbu"></a></li>
+        <li><a href="javascript:;" class="iconfont icon-quanbu" title="全部"></a></li>
       </ul>
     </div>
     
@@ -42,7 +42,7 @@ let keyword = ref('singer')
 // 点击刷新的自定义事件
 async function Refresh(name) {
   if(name === 'singer') {
-    await total('/artist/list',{ limit:23 })
+    await total('/artist/list',{ limit:31 })
   }
 }
 
@@ -73,7 +73,7 @@ async function total(address,data) {
 // 存储请求数据
 let storage = ref(null)
 
-total('/artist/list',{ limit:23 })
+total('/artist/list',{ limit:31 })
 
 onMounted(()=>{
   Re_assignment()
@@ -98,7 +98,7 @@ onMounted(()=>{
       li {
         float: left;
         margin-left: 1.18vw;
-        margin-top: 1vw;
+        margin-top: 0.9vw;
 
         &:last-child {
           width: 10vw;

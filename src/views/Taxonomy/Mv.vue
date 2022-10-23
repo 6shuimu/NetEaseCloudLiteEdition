@@ -42,7 +42,7 @@ let keyword = ref('Mv')
 // 点击刷新的自定义事件
 async function Refresh(name) {
   if(name === 'Mv') {
-    await total('/mv/all',{ limit:11 })
+    await total('/mv/all',{ limit:15 })
   }
 }
 
@@ -73,7 +73,7 @@ async function total(address,data) {
 // 存储请求数据
 let storage = ref(null)
 
-total('/mv/all',{ limit:11 })
+total('/mv/all',{ limit:15 })
 
 onMounted(()=>{
   Re_assignment()
@@ -98,7 +98,7 @@ onMounted(()=>{
 
       li {
         float: left;
-        margin-top: 0.5vw;
+        margin-top: 0.3vw;
         margin-left: 2.2vw;
 
         &:last-child {
@@ -108,7 +108,7 @@ onMounted(()=>{
 
           .icon-quanbu {
             display: inline-block;
-            font-size: 12.5vw;
+            font-size: 12vw;
             color: rgb(175, 178, 180);
             transition: all .3s;
             cursor: pointer;

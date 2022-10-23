@@ -111,7 +111,7 @@ onMounted(()=>{
 // 总体
 .total {
   width: 100%;
-  height: 100%;
+  height: 53.1vw;
 
   // 左侧导航栏
   .navigation {

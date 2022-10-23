@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const usename = defineStore('main',{
   state:()=>{
     return{
-      cheshi:0
+      // 登录页面状态值
+      // 二维码
     }
   },
 

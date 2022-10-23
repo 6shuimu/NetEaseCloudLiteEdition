@@ -37,3 +37,13 @@ export function Clear_the_style(data) {
     data.className = temp.join(' ')
   }
 }
+
+// 判断是否有登录
+export function WhethertosignIn() {
+  const temp = localStorage.getItem('NetEaseCloudcookie')
+  if(temp === null || temp === '') {
+    return false
+  }else {
+    return true
+  }
+}
